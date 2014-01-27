@@ -19,9 +19,11 @@ This sketch  triggers daily alarms at 8:30 am and 17:45 pm.
 A Timer is triggered every 15 seconds, another timer triggers once only after 10 seconds.
 A weekly alarm is triggered every Sunday at 8:30:30
 */
-
+#include <DS1307RTC.h>
+#include <Wire.h>
 #include <Time.h>
 #include <TimeAlarms.h>
+
 
 void setup()
 {
