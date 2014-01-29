@@ -9,7 +9,7 @@ const char *monthName[12] = {
 };
 
 tmElements_t tm;
-
+String dayofweek = "";
 String inputString = "";         // a string to hold incoming data
 boolean stringComplete = false;  // whether the string is complete
 
@@ -59,6 +59,7 @@ void loop() {
   myDisplay.home();
   if (RTC.read(tm))
   {
+    DOW();
     //print2digits(tm.Hour);
     if (tm.Hour >= 0 && tm.Hour < 10) {
       myDisplay.setCursor(0);
@@ -104,8 +105,9 @@ void loop() {
     }
     myDisplay.setCursor(11);
     myDisplay.print("/");
-    myDisplay.setCursor(12);
-    myDisplay.print(tmYearToCalendar(tm.Year));
+    myDisplay.setCursor(13);
+    myDisplay.print(tm.Wday);
+    //myDisplay.print(tmYearToCalendar(tm.Year));
     delay(1000);
   }
   else
@@ -122,6 +124,34 @@ void loop() {
   }  
 }
 
+void DOW() {
+  switch (tm.Wday) {
+    case 1:
+      dayofweek = ("Sun");
+      break;
+    case 2:
+      dayofweek = ("Mon");
+      break;
+    case 3:
+      dayofweek = ("Tue");
+      break;
+    case 4:
+      dayofweek = ("Wed");
+      break;
+    case 5:
+      dayofweek = ("Thu");
+      break;
+    case 6:
+      dayofweek = ("Fri");
+      break;
+    case 7:
+      dayofweek = ("Sat");
+      break;
+    //default: 
+      // if nothing else matches, do the default
+      // default is optional
+  }
+}
 /*
 bool getTime(const char *str)
 {
