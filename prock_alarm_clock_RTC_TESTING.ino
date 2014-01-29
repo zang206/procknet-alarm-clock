@@ -33,8 +33,8 @@ int myDirection = 1;           // direction of scrolling.  -1 = left, 1 = right.
 
 
 void setup() {
-  bool parse=false;
-  bool config=false;
+  bool parse = false;
+  bool config = false;
   
    // initialize serial:
   Serial.begin(9600);
@@ -60,7 +60,7 @@ void loop() {
   if (RTC.read(tm))
   {
     //print2digits(tm.Hour);
-    if (number >= 0 && number < 10) {
+    if (tm.Hour >= 0 && tm.Hour < 10) {
       myDisplay.setCursor(0);
       myDisplay.print("0");
       myDisplay.print(tm.Hour);
@@ -71,7 +71,7 @@ void loop() {
     }
     myDisplay.setCursor(2);
     myDisplay.print(":");
-    If (tm.Minute >= 0 && tm.Minute < 10) {
+    if (tm.Minute >= 0 && tm.Minute < 10) {
       myDisplay.setCursor(3);
       myDisplay.print("0");
       myDisplay.print(tm.Minute);
@@ -82,7 +82,7 @@ void loop() {
     }
     myDisplay.setCursor(2);
     //print2digits(tm.Month);
-    If (tm.Month >= 0 && tm.Month < 10) {
+    if (tm.Month >= 0 && tm.Month < 10) {
       myDisplay.setCursor(6);
       myDisplay.print("0");
       myDisplay.print(tm.Month);
@@ -93,7 +93,7 @@ void loop() {
     }
     myDisplay.setCursor(8);
     myDisplay.print("/");
-    If (tm.Day >= 0 && tm.Day < 10) {
+    if (tm.Day >= 0 && tm.Day < 10) {
       myDisplay.setCursor(9);
       myDisplay.print("0");
       myDisplay.print(tm.Day);
@@ -103,7 +103,7 @@ void loop() {
       myDisplay.print(tm.Day);
     }
     myDisplay.setCursor(11);
-    myDisplay.print('-');
+    myDisplay.print("/");
     myDisplay.setCursor(12);
     myDisplay.print(tmYearToCalendar(tm.Year));
     delay(1000);
