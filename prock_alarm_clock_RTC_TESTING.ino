@@ -43,20 +43,29 @@ void setup() {
 
 // initialize the display library:
   myDisplay.begin();
+  delay(100);
   myDisplay.clear();
-  myDisplay.setString("Aardvarks mark the park after dark.");
   myDisplay.setBrightness(brightness);
   delay(100);
 
-  while (!Serial) ; // wait for Arduino Serial Monitor
-  delay(200);
+  //while (!Serial) ; // wait for Arduino Serial Monitor
+  //delay(200);
 //  Serial.print("type in anything: ");
-  
+}  
 
 
 void loop() {
-  myDisplay.home();
-  myDisplay.print(
+  if (RTC.read(tm))
+  {;
+    myDisplay.home();
+    myDisplay.print(tm.Wday);
+    delay(1000);
+    
+  }
+  else if (RTC.chipPresent)
+  {
+    myDisplay.print("RTCFoundNotSetup");
+	
   
 }
 
@@ -178,6 +187,6 @@ void readRTC() {
     delay(9000);
   }
   delay(1000);
-break
+
   
 }
