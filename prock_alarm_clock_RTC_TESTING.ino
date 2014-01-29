@@ -66,7 +66,7 @@ void loop() {
   {
     if (RTC.chipPresent)
     {
-      myDisplay.print("RTCFoundNotSetup");
+      myDisplay.print("RTC Not Setup");
     }
     else
     {
@@ -77,6 +77,7 @@ void loop() {
   
 }
 
+/*
 bool getTime(const char *str)
 {
   int Hour, Min, Sec;
@@ -104,6 +105,7 @@ bool getDate(const char *str)
   tm.Year = CalendarYrToTm(Year);
   return true;
 }
+*/
 
 /*
   Serial Event example
@@ -136,7 +138,7 @@ void loop() {
   }
 }
 
-/*
+
   SerialEvent occurs whenever a new data comes in the
  hardware serial RX.  This routine is run between each
  time loop() runs, so using delay inside loop can delay
@@ -160,7 +162,7 @@ void serialEvent()
   }
 }
 */
-
+/*
 void print2digits(int number) {
   if (number >= 0 && number < 10) {
     Serial.write('0');
@@ -198,3 +200,4 @@ void readRTC() {
 
   
 }
+*/
