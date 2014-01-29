@@ -56,15 +56,23 @@ void setup() {
 
 void loop() {
   if (RTC.read(tm))
-  {;
+  {
     myDisplay.home();
     myDisplay.print(tm.Wday);
     delay(1000);
     
   }
-  else if (RTC.chipPresent)
+  else
   {
-    myDisplay.print("RTCFoundNotSetup");
+    if (RTC.chipPresent)
+    {
+      myDisplay.print("RTCFoundNotSetup");
+    }
+    else
+    {
+    myDisplay.print("RTCNotConnected");
+    }
+  }
 	
   
 }
