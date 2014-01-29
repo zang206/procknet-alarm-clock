@@ -55,10 +55,35 @@ void setup() {
 
 
 void loop() {
+  //myDisplay.clear();
   if (RTC.read(tm))
   {
     myDisplay.home();
-    myDisplay.print(tm.Wday);
+    //print2digits(tm.Hour);
+    if (number >= 0 && number < 10) {
+      myDisplay.setCursor(0);
+      myDisplay.print('0');
+      myDisplay.print(tm.Hour);
+    }
+    else {
+      myDisplay.setCursor(0);
+      myDisplay.print(tm.Hour);
+    }
+    myDisplay.setCursor(2);
+    myDisplay.print(':');
+    myDisplay.setCursor(3);
+    //print2digits(tm.Minute);
+    myDisplay.setCursor(5);
+    myDisplay.print(".");
+    //print2digits(tm.Month);
+    myDisplay.setCursor(8);
+    myDisplay.print('-');
+    myDisplay.setCursor(9);
+    //print2digits(tm.Day);
+    myDisplay.setCursor(11);
+    myDisplay.print('-');
+    myDisplay.setCursor(12);
+    myDisplay.print(tmYearToCalendar(tm.Year));
     delay(1000);
     
   }
@@ -162,14 +187,14 @@ void serialEvent()
   }
 }
 */
-/*
+
 void print2digits(int number) {
   if (number >= 0 && number < 10) {
-    Serial.write('0');
+    myDisplay.print('0');
   }
-  Serial.print(number);
+  myDisplay.print(number);
 }
-
+/*
 void readRTC() {
   if (RTC.read(tm)) {
     Serial.print("Ok, Time = ");
