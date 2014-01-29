@@ -103,10 +103,10 @@ void loop() {
       myDisplay.setCursor(9);
       myDisplay.print(tm.Day);
     }
-    myDisplay.setCursor(11);
-    myDisplay.print("/");
+    //myDisplay.setCursor(11);
+    //myDisplay.print("/");
     myDisplay.setCursor(13);
-    myDisplay.print(tm.Wday);
+    myDisplay.print(dayofweek);
     //myDisplay.print(tmYearToCalendar(tm.Year));
     delay(1000);
   }
@@ -127,25 +127,25 @@ void loop() {
 void DOW() {
   switch (tm.Wday) {
     case 1:
-      dayofweek = ("Sun");
-      break;
-    case 2:
-      dayofweek = ("Mon");
-      break;
-    case 3:
       dayofweek = ("Tue");
       break;
-    case 4:
+    case 2:
       dayofweek = ("Wed");
       break;
-    case 5:
+    case 3:
       dayofweek = ("Thu");
       break;
-    case 6:
+    case 4:
       dayofweek = ("Fri");
       break;
-    case 7:
+    case 5:
       dayofweek = ("Sat");
+      break;
+    case 6:
+      dayofweek = ("Sun");
+      break;
+    case 7:
+      dayofweek = ("Mon");
       break;
     //default: 
       // if nothing else matches, do the default
