@@ -56,52 +56,70 @@ void setup() {
 
 void loop() {
   //myDisplay.clear();
+  myDisplay.home();
   if (RTC.read(tm))
   {
-    myDisplay.home();
     //print2digits(tm.Hour);
     if (number >= 0 && number < 10) {
       myDisplay.setCursor(0);
-      myDisplay.print('0');
+      myDisplay.print("0");
       myDisplay.print(tm.Hour);
     }
     else {
       myDisplay.setCursor(0);
       myDisplay.print(tm.Hour);
     }
-    If (tm.Minute >= 0 && tm.Minute < 10) {
-      diSplay.print(
     myDisplay.setCursor(2);
-    myDisplay.print(':');
-    myDisplay.setCursor(3);
-    //print2digits(tm.Minute);
-    myDisplay.setCursor(5);
-    myDisplay.print(".");
+    myDisplay.print(":");
+    If (tm.Minute >= 0 && tm.Minute < 10) {
+      myDisplay.setCursor(3);
+      myDisplay.print("0");
+      myDisplay.print(tm.Minute);
+    }
+    else {
+      myDisplay.setCursor(3);
+      myDisplay.print(tm.Minute);
+    }
+    myDisplay.setCursor(2);
     //print2digits(tm.Month);
+    If (tm.Month >= 0 && tm.Month < 10) {
+      myDisplay.setCursor(6);
+      myDisplay.print("0");
+      myDisplay.print(tm.Month);
+    }
+    else {
+      myDisplay.setCursor(6);
+      myDisplay.print(tm.Month);
+    }
     myDisplay.setCursor(8);
-    myDisplay.print('-');
-    myDisplay.setCursor(9);
-    //print2digits(tm.Day);
+    myDisplay.print("/");
+    If (tm.Day >= 0 && tm.Day < 10) {
+      myDisplay.setCursor(9);
+      myDisplay.print("0");
+      myDisplay.print(tm.Day);
+    }
+    else {
+      myDisplay.setCursor(9);
+      myDisplay.print(tm.Day);
+    }
     myDisplay.setCursor(11);
     myDisplay.print('-');
     myDisplay.setCursor(12);
     myDisplay.print(tmYearToCalendar(tm.Year));
     delay(1000);
-    
   }
   else
   {
     if (RTC.chipPresent)
     {
       myDisplay.print("RTC Not Setup");
+      delay(1000);
     }
-    else
-    {
-    myDisplay.print("RTCNotConnected");
+    else {
+      myDisplay.print("RTCNotConnected");
+      delay(1000);
     }
-  }
-	
-  
+  }  
 }
 
 /*
@@ -188,7 +206,7 @@ void serialEvent()
     } 
   }
 }
-*/
+
 
 void print2digits(int number) {
   if (number >= 0 && number < 10) {
@@ -196,6 +214,7 @@ void print2digits(int number) {
   }
   myDisplay.print(number);
 }
+*/
 /*
 void readRTC() {
   if (RTC.read(tm)) {
