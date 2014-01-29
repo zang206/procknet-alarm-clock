@@ -69,6 +69,8 @@ void loop() {
       myDisplay.setCursor(0);
       myDisplay.print(tm.Hour);
     }
+    If (tm.Minute >= 0 && tm.Minute < 10) {
+      diSplay.print(
     myDisplay.setCursor(2);
     myDisplay.print(':');
     myDisplay.setCursor(3);
