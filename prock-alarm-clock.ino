@@ -1,4 +1,3 @@
-
 /*Alarm clock code for to be used on a Pro Mini 5v 16mhz and a DS1307 RTC.  Using example code from 
 TimeAlarmExample.pde and DS1307RTC from www.pjrc.com.  Making this project for my wife for which
 normal alarm clocks are effective any more.  Currently we have three and she still gets up late if
