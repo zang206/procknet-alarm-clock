@@ -1,4 +1,4 @@
-procknet-alarm-clock
+ProckClock Ver 3.0
 ====================
 
-alarm clock using an arduino and ds1307 rtc. uses really loud siren to wake the dead
+I am trying for a third time to build an alarm clock using an Arduino and DS1307 RTC. This version of the clock will use a few really loud sirens loud enough to wake the dead.
